@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qiandai.mapper.BanksBaseMapper" >
+  <resultMap id="BaseResultMap" type="com.qiandai.entity.BanksBase" >
+    <result column="id" property="id" jdbcType="VARCHAR" />
+    <result column="binNo" property="binno" jdbcType="VARCHAR" />
+    <result column="cardLen" property="cardlen" jdbcType="VARCHAR" />
+    <result column="bankName" property="bankname" jdbcType="NVARCHAR" />
+    <result column="cardTypeName" property="cardtypename" jdbcType="NVARCHAR" />
+    <result column="cardName" property="cardname" jdbcType="NVARCHAR" />
+    <result column="bankNo" property="bankno" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="NVARCHAR" />
+    <result column="cardType" property="cardtype" jdbcType="VARCHAR" />
+    <result column="binLen" property="binlen" jdbcType="VARCHAR" />
+    <result column="bankTrueName" property="banktruename" jdbcType="NVARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.qiandai.entity.BanksBase" >
+    insert into banks_base (id, binNo, cardLen, 
+      bankName, cardTypeName, cardName, 
+      bankNo, createTime, remark, 
+      cardType, binLen, bankTrueName
+      )
+    values (#{id,jdbcType=VARCHAR}, #{binno,jdbcType=VARCHAR}, #{cardlen,jdbcType=VARCHAR}, 
+      #{bankname,jdbcType=NVARCHAR}, #{cardtypename,jdbcType=NVARCHAR}, #{cardname,jdbcType=NVARCHAR}, 
+      #{bankno,jdbcType=VARCHAR}, #{createtime,jdbcType=VARCHAR}, #{remark,jdbcType=NVARCHAR}, 
+      #{cardtype,jdbcType=VARCHAR}, #{binlen,jdbcType=VARCHAR}, #{banktruename,jdbcType=NVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.qiandai.entity.BanksBase" >
+    insert into banks_base
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="binno != null" >
+        binNo,
+      </if>
+      <if test="cardlen != null" >
+        cardLen,
+      </if>
+      <if test="bankname != null" >
+        bankName,
+      </if>
+      <if test="cardtypename != null" >
+        cardTypeName,
+      </if>
+      <if test="cardname != null" >
+        cardName,
+      </if>
+      <if test="bankno != null" >
+        bankNo,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="cardtype != null" >
+        cardType,
+      </if>
+      <if test="binlen != null" >
+        binLen,
+      </if>
+      <if test="banktruename != null" >
+        bankTrueName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="binno != null" >
+        #{binno,jdbcType=VARCHAR},
+      </if>
+      <if test="cardlen != null" >
+        #{cardlen,jdbcType=VARCHAR},
+      </if>
+      <if test="bankname != null" >
+        #{bankname,jdbcType=NVARCHAR},
+      </if>
+      <if test="cardtypename != null" >
+        #{cardtypename,jdbcType=NVARCHAR},
+      </if>
+      <if test="cardname != null" >
+        #{cardname,jdbcType=NVARCHAR},
+      </if>
+      <if test="bankno != null" >
+        #{bankno,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=NVARCHAR},
+      </if>
+      <if test="cardtype != null" >
+        #{cardtype,jdbcType=VARCHAR},
+      </if>
+      <if test="binlen != null" >
+        #{binlen,jdbcType=VARCHAR},
+      </if>
+      <if test="banktruename != null" >
+        #{banktruename,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

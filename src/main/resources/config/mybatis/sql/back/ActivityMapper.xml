@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qiandai.mapper.ActivityMapper" >
+  <resultMap id="BaseResultMap" type="com.qiandai.entity.Activity" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="activity_no" property="activityNo" jdbcType="VARCHAR" />
+    <result column="activity_name" property="activityName" jdbcType="VARCHAR" />
+    <result column="activity_begintime" property="activityBegintime" jdbcType="TIMESTAMP" />
+    <result column="activity_endtime" property="activityEndtime" jdbcType="TIMESTAMP" />
+    <result column="todayquota" property="todayquota" jdbcType="DECIMAL" />
+    <result column="created_at" property="createdAt" jdbcType="TIMESTAMP" />
+    <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP" />
+    <result column="deleted_at" property="deletedAt" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <insert id="insert" parameterType="com.qiandai.entity.Activity" >
+    insert into activitys (id, activity_no, activity_name, 
+      activity_begintime, activity_endtime, 
+      todayquota, created_at, updated_at, 
+      deleted_at)
+    values (#{id,jdbcType=BIGINT}, #{activityNo,jdbcType=VARCHAR}, #{activityName,jdbcType=VARCHAR}, 
+      #{activityBegintime,jdbcType=TIMESTAMP}, #{activityEndtime,jdbcType=TIMESTAMP}, 
+      #{todayquota,jdbcType=DECIMAL}, #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}, 
+      #{deletedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qiandai.entity.Activity" >
+    insert into activitys
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="activityNo != null" >
+        activity_no,
+      </if>
+      <if test="activityName != null" >
+        activity_name,
+      </if>
+      <if test="activityBegintime != null" >
+        activity_begintime,
+      </if>
+      <if test="activityEndtime != null" >
+        activity_endtime,
+      </if>
+      <if test="todayquota != null" >
+        todayquota,
+      </if>
+      <if test="createdAt != null" >
+        created_at,
+      </if>
+      <if test="updatedAt != null" >
+        updated_at,
+      </if>
+      <if test="deletedAt != null" >
+        deleted_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="activityNo != null" >
+        #{activityNo,jdbcType=VARCHAR},
+      </if>
+      <if test="activityName != null" >
+        #{activityName,jdbcType=VARCHAR},
+      </if>
+      <if test="activityBegintime != null" >
+        #{activityBegintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="activityEndtime != null" >
+        #{activityEndtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="todayquota != null" >
+        #{todayquota,jdbcType=DECIMAL},
+      </if>
+      <if test="createdAt != null" >
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null" >
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedAt != null" >
+        #{deletedAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

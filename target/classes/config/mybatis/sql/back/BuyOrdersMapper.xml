@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qiandai.mapper.BuyOrdersMapper" >
+  <resultMap id="BaseResultMap" type="com.qiandai.entity.BuyOrders" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="buy_no" property="buyNo" jdbcType="VARCHAR" />
+    <result column="user_no" property="userNo" jdbcType="VARCHAR" />
+    <result column="buy_channel" property="buyChannel" jdbcType="VARCHAR" />
+    <result column="cust_no" property="custNo" jdbcType="VARCHAR" />
+    <result column="agent_no" property="agentNo" jdbcType="VARCHAR" />
+    <result column="cust_name" property="custName" jdbcType="VARCHAR" />
+    <result column="id_type" property="idType" jdbcType="VARCHAR" />
+    <result column="id_code" property="idCode" jdbcType="VARCHAR" />
+    <result column="mobile_no" property="mobileNo" jdbcType="VARCHAR" />
+    <result column="tran_amt" property="tranAmt" jdbcType="DECIMAL" />
+    <result column="prod_code" property="prodCode" jdbcType="VARCHAR" />
+    <result column="acct_no" property="acctNo" jdbcType="VARCHAR" />
+    <result column="open_bank" property="openBank" jdbcType="VARCHAR" />
+    <result column="balance_amt" property="balanceAmt" jdbcType="DECIMAL" />
+    <result column="capital_status" property="capitalStatus" jdbcType="VARCHAR" />
+    <result column="process_flag" property="processFlag" jdbcType="VARCHAR" />
+    <result column="userbankcard_no" property="userbankcardNo" jdbcType="VARCHAR" />
+    <result column="activity_no" property="activityNo" jdbcType="VARCHAR" />
+    <result column="buy_state" property="buyState" jdbcType="VARCHAR" />
+    <result column="buy_info" property="buyInfo" jdbcType="VARCHAR" />
+    <result column="buy_time" property="buyTime" jdbcType="VARCHAR" />
+    <result column="refund_state" property="refundState" jdbcType="VARCHAR" />
+    <result column="refund_time" property="refundTime" jdbcType="VARCHAR" />
+    <result column="debit_state" property="debitState" jdbcType="VARCHAR" />
+    <result column="debit_time" property="debitTime" jdbcType="TIMESTAMP" />
+    <result column="debit_task_no" property="debitTaskNo" jdbcType="VARCHAR" />
+    <result column="debit_task_state" property="debitTaskState" jdbcType="VARCHAR" />
+    <result column="buy_task_no" property="buyTaskNo" jdbcType="VARCHAR" />
+    <result column="buy_task_state" property="buyTaskState" jdbcType="VARCHAR" />
+    <result column="reconciliation_state" property="reconciliationState" jdbcType="VARCHAR" />
+    <result column="seq_no" property="seqNo" jdbcType="VARCHAR" />
+    <result column="created_at" property="createdAt" jdbcType="TIMESTAMP" />
+    <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP" />
+    <result column="deleted_at" property="deletedAt" jdbcType="TIMESTAMP" />
+    <result column="buy_source" property="buySource" jdbcType="VARCHAR" />
+    <result column="fundplay_state" property="fundplayState" jdbcType="VARCHAR" />
+    <result column="fundplay_time" property="fundplayTime" jdbcType="TIMESTAMP" />
+    <result column="fundplay_no" property="fundplayNo" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.qiandai.entity.BuyOrders" >
+    insert into buy_orders (id, buy_no, user_no, 
+      buy_channel, cust_no, agent_no, 
+      cust_name, id_type, id_code, 
+      mobile_no, tran_amt, prod_code, 
+      acct_no, open_bank, balance_amt, 
+      capital_status, process_flag, userbankcard_no, 
+      activity_no, buy_state, buy_info, 
+      buy_time, refund_state, refund_time, 
+      debit_state, debit_time, debit_task_no, 
+      debit_task_state, buy_task_no, buy_task_state, 
+      reconciliation_state, seq_no, created_at, 
+      updated_at, deleted_at, buy_source, 
+      fundplay_state, fundplay_time, fundplay_no
+      )
+    values (#{id,jdbcType=BIGINT}, #{buyNo,jdbcType=VARCHAR}, #{userNo,jdbcType=VARCHAR}, 
+      #{buyChannel,jdbcType=VARCHAR}, #{custNo,jdbcType=VARCHAR}, #{agentNo,jdbcType=VARCHAR}, 
+      #{custName,jdbcType=VARCHAR}, #{idType,jdbcType=VARCHAR}, #{idCode,jdbcType=VARCHAR}, 
+      #{mobileNo,jdbcType=VARCHAR}, #{tranAmt,jdbcType=DECIMAL}, #{prodCode,jdbcType=VARCHAR}, 
+      #{acctNo,jdbcType=VARCHAR}, #{openBank,jdbcType=VARCHAR}, #{balanceAmt,jdbcType=DECIMAL}, 
+      #{capitalStatus,jdbcType=VARCHAR}, #{processFlag,jdbcType=VARCHAR}, #{userbankcardNo,jdbcType=VARCHAR}, 
+      #{activityNo,jdbcType=VARCHAR}, #{buyState,jdbcType=VARCHAR}, #{buyInfo,jdbcType=VARCHAR}, 
+      #{buyTime,jdbcType=VARCHAR}, #{refundState,jdbcType=VARCHAR}, #{refundTime,jdbcType=VARCHAR}, 
+      #{debitState,jdbcType=VARCHAR}, #{debitTime,jdbcType=TIMESTAMP}, #{debitTaskNo,jdbcType=VARCHAR}, 
+      #{debitTaskState,jdbcType=VARCHAR}, #{buyTaskNo,jdbcType=VARCHAR}, #{buyTaskState,jdbcType=VARCHAR}, 
+      #{reconciliationState,jdbcType=VARCHAR}, #{seqNo,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP}, #{deletedAt,jdbcType=TIMESTAMP}, #{buySource,jdbcType=VARCHAR}, 
+      #{fundplayState,jdbcType=VARCHAR}, #{fundplayTime,jdbcType=TIMESTAMP}, #{fundplayNo,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.qiandai.entity.BuyOrders" >
+    insert into buy_orders
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="buyNo != null" >
+        buy_no,
+      </if>
+      <if test="userNo != null" >
+        user_no,
+      </if>
+      <if test="buyChannel != null" >
+        buy_channel,
+      </if>
+      <if test="custNo != null" >
+        cust_no,
+      </if>
+      <if test="agentNo != null" >
+        agent_no,
+      </if>
+      <if test="custName != null" >
+        cust_name,
+      </if>
+      <if test="idType != null" >
+        id_type,
+      </if>
+      <if test="idCode != null" >
+        id_code,
+      </if>
+      <if test="mobileNo != null" >
+        mobile_no,
+      </if>
+      <if test="tranAmt != null" >
+        tran_amt,
+      </if>
+      <if test="prodCode != null" >
+        prod_code,
+      </if>
+      <if test="acctNo != null" >
+        acct_no,
+      </if>
+      <if test="openBank != null" >
+        open_bank,
+      </if>
+      <if test="balanceAmt != null" >
+        balance_amt,
+      </if>
+      <if test="capitalStatus != null" >
+        capital_status,
+      </if>
+      <if test="processFlag != null" >
+        process_flag,
+      </if>
+      <if test="userbankcardNo != null" >
+        userbankcard_no,
+      </if>
+      <if test="activityNo != null" >
+        activity_no,
+      </if>
+      <if test="buyState != null" >
+        buy_state,
+      </if>
+      <if test="buyInfo != null" >
+        buy_info,
+      </if>
+      <if test="buyTime != null" >
+        buy_time,
+      </if>
+      <if test="refundState != null" >
+        refund_state,
+      </if>
+      <if test="refundTime != null" >
+        refund_time,
+      </if>
+      <if test="debitState != null" >
+        debit_state,
+      </if>
+      <if test="debitTime != null" >
+        debit_time,
+      </if>
+      <if test="debitTaskNo != null" >
+        debit_task_no,
+      </if>
+      <if test="debitTaskState != null" >
+        debit_task_state,
+      </if>
+      <if test="buyTaskNo != null" >
+        buy_task_no,
+      </if>
+      <if test="buyTaskState != null" >
+        buy_task_state,
+      </if>
+      <if test="reconciliationState != null" >
+        reconciliation_state,
+      </if>
+      <if test="seqNo != null" >
+        seq_no,
+      </if>
+      <if test="createdAt != null" >
+        created_at,
+      </if>
+      <if test="updatedAt != null" >
+        updated_at,
+      </if>
+      <if test="deletedAt != null" >
+        deleted_at,
+      </if>
+      <if test="buySource != null" >
+        buy_source,
+      </if>
+      <if test="fundplayState != null" >
+        fundplay_state,
+      </if>
+      <if test="fundplayTime != null" >
+        fundplay_time,
+      </if>
+      <if test="fundplayNo != null" >
+        fundplay_no,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="buyNo != null" >
+        #{buyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="userNo != null" >
+        #{userNo,jdbcType=VARCHAR},
+      </if>
+      <if test="buyChannel != null" >
+        #{buyChannel,jdbcType=VARCHAR},
+      </if>
+      <if test="custNo != null" >
+        #{custNo,jdbcType=VARCHAR},
+      </if>
+      <if test="agentNo != null" >
+        #{agentNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custName != null" >
+        #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="idType != null" >
+        #{idType,jdbcType=VARCHAR},
+      </if>
+      <if test="idCode != null" >
+        #{idCode,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileNo != null" >
+        #{mobileNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tranAmt != null" >
+        #{tranAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="prodCode != null" >
+        #{prodCode,jdbcType=VARCHAR},
+      </if>
+      <if test="acctNo != null" >
+        #{acctNo,jdbcType=VARCHAR},
+      </if>
+      <if test="openBank != null" >
+        #{openBank,jdbcType=VARCHAR},
+      </if>
+      <if test="balanceAmt != null" >
+        #{balanceAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="capitalStatus != null" >
+        #{capitalStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="processFlag != null" >
+        #{processFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="userbankcardNo != null" >
+        #{userbankcardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="activityNo != null" >
+        #{activityNo,jdbcType=VARCHAR},
+      </if>
+      <if test="buyState != null" >
+        #{buyState,jdbcType=VARCHAR},
+      </if>
+      <if test="buyInfo != null" >
+        #{buyInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="buyTime != null" >
+        #{buyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="refundState != null" >
+        #{refundState,jdbcType=VARCHAR},
+      </if>
+      <if test="refundTime != null" >
+        #{refundTime,jdbcType=VARCHAR},
+      </if>
+      <if test="debitState != null" >
+        #{debitState,jdbcType=VARCHAR},
+      </if>
+      <if test="debitTime != null" >
+        #{debitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="debitTaskNo != null" >
+        #{debitTaskNo,jdbcType=VARCHAR},
+      </if>
+      <if test="debitTaskState != null" >
+        #{debitTaskState,jdbcType=VARCHAR},
+      </if>
+      <if test="buyTaskNo != null" >
+        #{buyTaskNo,jdbcType=VARCHAR},
+      </if>
+      <if test="buyTaskState != null" >
+        #{buyTaskState,jdbcType=VARCHAR},
+      </if>
+      <if test="reconciliationState != null" >
+        #{reconciliationState,jdbcType=VARCHAR},
+      </if>
+      <if test="seqNo != null" >
+        #{seqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="createdAt != null" >
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null" >
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedAt != null" >
+        #{deletedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="buySource != null" >
+        #{buySource,jdbcType=VARCHAR},
+      </if>
+      <if test="fundplayState != null" >
+        #{fundplayState,jdbcType=VARCHAR},
+      </if>
+      <if test="fundplayTime != null" >
+        #{fundplayTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fundplayNo != null" >
+        #{fundplayNo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qiandai.mapper.SysUserMapper" >
+  <resultMap id="sysUserMapper" type="com.qiandai.entity.SysUser" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="area_id" property="areaId" jdbcType="BIGINT" />
+    <result column="office_id" property="officeId" jdbcType="BIGINT" />
+    <result column="login_name" property="loginName" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="NVARCHAR" />
+    <result column="userType" property="usertype" jdbcType="CHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="login_ip" property="loginIp" jdbcType="NVARCHAR" />
+    <result column="login_date" property="loginDate" jdbcType="TIMESTAMP" />
+    <result column="create_by" property="createBy" jdbcType="BIGINT" />
+    <result column="created_at" property="createdAt" jdbcType="TIMESTAMP" />
+    <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP" />
+    <result column="deleted_at" property="deletedAt" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <insert id="insert" parameterType="com.qiandai.entity.SysUser" >
+    insert into PAFund.qsq.sys_user ( area_id, office_id, 
+      login_name, password, name, 
+      email, phone, mobile, 
+      remarks, userType, del_flag, 
+      login_ip, login_date, create_by, 
+      created_at, updated_at, deleted_at
+      )
+    values (#{areaId,jdbcType=BIGINT}, #{officeId,jdbcType=BIGINT}, 
+      #{loginName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{remarks,jdbcType=NVARCHAR}, #{usertype,jdbcType=CHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{loginIp,jdbcType=NVARCHAR}, #{loginDate,jdbcType=TIMESTAMP}, #{createBy,jdbcType=BIGINT}, 
+      GETDATE(), #{updatedAt,jdbcType=TIMESTAMP}, #{deletedAt,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.qiandai.entity.SysUser" >
+    insert into sys_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="areaId != null" >
+        area_id,
+      </if>
+      <if test="officeId != null" >
+        office_id,
+      </if>
+      <if test="loginName != null" >
+        login_name,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="usertype != null" >
+        userType,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="loginIp != null" >
+        login_ip,
+      </if>
+      <if test="loginDate != null" >
+        login_date,
+      </if>
+      <if test="createBy != null" >
+        create_by,
+      </if>
+      <if test="createdAt != null" >
+        created_at,
+      </if>
+      <if test="updatedAt != null" >
+        updated_at,
+      </if>
+      <if test="deletedAt != null" >
+        deleted_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="areaId != null" >
+        #{areaId,jdbcType=BIGINT},
+      </if>
+      <if test="officeId != null" >
+        #{officeId,jdbcType=BIGINT},
+      </if>
+      <if test="loginName != null" >
+        #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=NVARCHAR},
+      </if>
+      <if test="usertype != null" >
+        #{usertype,jdbcType=CHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="loginIp != null" >
+        #{loginIp,jdbcType=NVARCHAR},
+      </if>
+      <if test="loginDate != null" >
+        #{loginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=BIGINT},
+      </if>
+      <if test="createdAt != null" >
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null" >
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedAt != null" >
+        #{deletedAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  
+  <!-- 查询登陆信息-->
+  <select id="findByUser" parameterType="hashmap" resultMap="sysUserMapper">
+  	SELECT  id,area_id,office_id,login_name,password
+      ,name,email,phone,mobile,remarks,userType,del_flag
+      ,login_ip,login_date,create_by,created_at,updated_at,deleted_at
+  	FROM PAFund.qsq.sys_user
+  	WHERE login_name=#{username} and password = #{password}
+  </select>
+  
+    <!-- 查询有无此邮箱信息-->
+  <select id="findByEmail" parameterType="hashmap" resultMap="sysUserMapper">
+  	SELECT  id,area_id,office_id,login_name,password
+      ,name,email,phone,mobile,remarks,userType,del_flag
+      ,login_ip,login_date,create_by,created_at,updated_at,deleted_at
+  	FROM PAFund.qsq.sys_user
+  	WHERE  email=#{email}
+  </select>
+  
+   <!-- 更新用户信息-->
+  <update id="updateUser" parameterType="com.qiandai.entity.SysUser">
+  	 update PAFund.qsq.sys_user
+     set password =#{password}
+     where email=#{email}
+  </update>
+  
+</mapper>

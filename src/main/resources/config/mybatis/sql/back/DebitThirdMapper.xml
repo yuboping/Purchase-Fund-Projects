@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qiandai.mapper.DebitThirdMapper" >
+  <resultMap id="BaseResultMap" type="com.qiandai.entity.DebitThird" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="debit_no" property="debitNo" jdbcType="VARCHAR" />
+    <result column="merchantcode" property="merchantcode" jdbcType="VARCHAR" />
+    <result column="order_no" property="orderNo" jdbcType="VARCHAR" />
+    <result column="money" property="money" jdbcType="DECIMAL" />
+    <result column="operator" property="operator" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="typededuction" property="typededuction" jdbcType="NVARCHAR" />
+    <result column="applyresult" property="applyresult" jdbcType="VARCHAR" />
+    <result column="applyresultdescription" property="applyresultdescription" jdbcType="VARCHAR" />
+    <result column="applytime" property="applytime" jdbcType="VARCHAR" />
+    <result column="buyresult" property="buyresult" jdbcType="VARCHAR" />
+    <result column="buyresultdescription" property="buyresultdescription" jdbcType="VARCHAR" />
+    <result column="debitresult" property="debitresult" jdbcType="VARCHAR" />
+    <result column="debitresultdescription" property="debitresultdescription" jdbcType="VARCHAR" />
+    <result column="debittime" property="debittime" jdbcType="VARCHAR" />
+    <result column="created_at" property="createdAt" jdbcType="TIMESTAMP" />
+    <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP" />
+    <result column="deleted_at" property="deletedAt" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <insert id="insert" parameterType="com.qiandai.entity.DebitThird" >
+    insert into debit_third_party (id, debit_no, merchantcode, 
+      order_no, money, operator, 
+      remarks, typededuction, applyresult, 
+      applyresultdescription, applytime, buyresult, 
+      buyresultdescription, debitresult, debitresultdescription, 
+      debittime, created_at, updated_at, 
+      deleted_at)
+    values (#{id,jdbcType=BIGINT}, #{debitNo,jdbcType=VARCHAR}, #{merchantcode,jdbcType=VARCHAR}, 
+      #{orderNo,jdbcType=VARCHAR}, #{money,jdbcType=DECIMAL}, #{operator,jdbcType=VARCHAR}, 
+      #{remarks,jdbcType=VARCHAR}, #{typededuction,jdbcType=NVARCHAR}, #{applyresult,jdbcType=VARCHAR}, 
+      #{applyresultdescription,jdbcType=VARCHAR}, #{applytime,jdbcType=VARCHAR}, #{buyresult,jdbcType=VARCHAR}, 
+      #{buyresultdescription,jdbcType=VARCHAR}, #{debitresult,jdbcType=VARCHAR}, #{debitresultdescription,jdbcType=VARCHAR}, 
+      #{debittime,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}, 
+      #{deletedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qiandai.entity.DebitThird" >
+    insert into debit_third_party
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="debitNo != null" >
+        debit_no,
+      </if>
+      <if test="merchantcode != null" >
+        merchantcode,
+      </if>
+      <if test="orderNo != null" >
+        order_no,
+      </if>
+      <if test="money != null" >
+        money,
+      </if>
+      <if test="operator != null" >
+        operator,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="typededuction != null" >
+        typededuction,
+      </if>
+      <if test="applyresult != null" >
+        applyresult,
+      </if>
+      <if test="applyresultdescription != null" >
+        applyresultdescription,
+      </if>
+      <if test="applytime != null" >
+        applytime,
+      </if>
+      <if test="buyresult != null" >
+        buyresult,
+      </if>
+      <if test="buyresultdescription != null" >
+        buyresultdescription,
+      </if>
+      <if test="debitresult != null" >
+        debitresult,
+      </if>
+      <if test="debitresultdescription != null" >
+        debitresultdescription,
+      </if>
+      <if test="debittime != null" >
+        debittime,
+      </if>
+      <if test="createdAt != null" >
+        created_at,
+      </if>
+      <if test="updatedAt != null" >
+        updated_at,
+      </if>
+      <if test="deletedAt != null" >
+        deleted_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="debitNo != null" >
+        #{debitNo,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantcode != null" >
+        #{merchantcode,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNo != null" >
+        #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="operator != null" >
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="typededuction != null" >
+        #{typededuction,jdbcType=NVARCHAR},
+      </if>
+      <if test="applyresult != null" >
+        #{applyresult,jdbcType=VARCHAR},
+      </if>
+      <if test="applyresultdescription != null" >
+        #{applyresultdescription,jdbcType=VARCHAR},
+      </if>
+      <if test="applytime != null" >
+        #{applytime,jdbcType=VARCHAR},
+      </if>
+      <if test="buyresult != null" >
+        #{buyresult,jdbcType=VARCHAR},
+      </if>
+      <if test="buyresultdescription != null" >
+        #{buyresultdescription,jdbcType=VARCHAR},
+      </if>
+      <if test="debitresult != null" >
+        #{debitresult,jdbcType=VARCHAR},
+      </if>
+      <if test="debitresultdescription != null" >
+        #{debitresultdescription,jdbcType=VARCHAR},
+      </if>
+      <if test="debittime != null" >
+        #{debittime,jdbcType=VARCHAR},
+      </if>
+      <if test="createdAt != null" >
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null" >
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedAt != null" >
+        #{deletedAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qiandai.mapper.IntoAccountMapper" >
+  <resultMap id="BaseResultMap" type="com.qiandai.entity.IntoAccount" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="account_no" property="accountNo" jdbcType="VARCHAR" />
+    <result column="custno" property="custno" jdbcType="VARCHAR" />
+    <result column="agentno" property="agentno" jdbcType="VARCHAR" />
+    <result column="applydate" property="applydate" jdbcType="VARCHAR" />
+    <result column="applytime" property="applytime" jdbcType="VARCHAR" />
+    <result column="busiseriaion" property="busiseriaion" jdbcType="VARCHAR" />
+    <result column="orderid" property="orderid" jdbcType="VARCHAR" />
+    <result column="trantype" property="trantype" jdbcType="VARCHAR" />
+    <result column="trandate" property="trandate" jdbcType="VARCHAR" />
+    <result column="trantime" property="trantime" jdbcType="VARCHAR" />
+    <result column="prodcode" property="prodcode" jdbcType="VARCHAR" />
+    <result column="tranmoney" property="tranmoney" jdbcType="VARCHAR" />
+    <result column="tranamt" property="tranamt" jdbcType="VARCHAR" />
+    <result column="start" property="start" jdbcType="VARCHAR" />
+    <result column="transeriaion" property="transeriaion" jdbcType="VARCHAR" />
+    <result column="account_state" property="accountState" jdbcType="VARCHAR" />
+    <result column="account_time" property="accountTime" jdbcType="TIMESTAMP" />
+    <result column="created_at" property="createdAt" jdbcType="TIMESTAMP" />
+    <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP" />
+    <result column="deleted_at" property="deletedAt" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <insert id="insert" parameterType="com.qiandai.entity.IntoAccount" >
+    insert into changeinto_account (id, account_no, custno, 
+      agentno, applydate, applytime, 
+      busiseriaion, orderid, trantype, 
+      trandate, trantime, prodcode, 
+      tranmoney, tranamt, start, 
+      transeriaion, account_state, account_time, 
+      created_at, updated_at, deleted_at
+      )
+    values (#{id,jdbcType=BIGINT}, #{accountNo,jdbcType=VARCHAR}, #{custno,jdbcType=VARCHAR}, 
+      #{agentno,jdbcType=VARCHAR}, #{applydate,jdbcType=VARCHAR}, #{applytime,jdbcType=VARCHAR}, 
+      #{busiseriaion,jdbcType=VARCHAR}, #{orderid,jdbcType=VARCHAR}, #{trantype,jdbcType=VARCHAR}, 
+      #{trandate,jdbcType=VARCHAR}, #{trantime,jdbcType=VARCHAR}, #{prodcode,jdbcType=VARCHAR}, 
+      #{tranmoney,jdbcType=VARCHAR}, #{tranamt,jdbcType=VARCHAR}, #{start,jdbcType=VARCHAR}, 
+      #{transeriaion,jdbcType=VARCHAR}, #{accountState,jdbcType=VARCHAR}, #{accountTime,jdbcType=TIMESTAMP}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}, #{deletedAt,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.qiandai.entity.IntoAccount" >
+    insert into changeinto_account
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="accountNo != null" >
+        account_no,
+      </if>
+      <if test="custno != null" >
+        custno,
+      </if>
+      <if test="agentno != null" >
+        agentno,
+      </if>
+      <if test="applydate != null" >
+        applydate,
+      </if>
+      <if test="applytime != null" >
+        applytime,
+      </if>
+      <if test="busiseriaion != null" >
+        busiseriaion,
+      </if>
+      <if test="orderid != null" >
+        orderid,
+      </if>
+      <if test="trantype != null" >
+        trantype,
+      </if>
+      <if test="trandate != null" >
+        trandate,
+      </if>
+      <if test="trantime != null" >
+        trantime,
+      </if>
+      <if test="prodcode != null" >
+        prodcode,
+      </if>
+      <if test="tranmoney != null" >
+        tranmoney,
+      </if>
+      <if test="tranamt != null" >
+        tranamt,
+      </if>
+      <if test="start != null" >
+        start,
+      </if>
+      <if test="transeriaion != null" >
+        transeriaion,
+      </if>
+      <if test="accountState != null" >
+        account_state,
+      </if>
+      <if test="accountTime != null" >
+        account_time,
+      </if>
+      <if test="createdAt != null" >
+        created_at,
+      </if>
+      <if test="updatedAt != null" >
+        updated_at,
+      </if>
+      <if test="deletedAt != null" >
+        deleted_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="accountNo != null" >
+        #{accountNo,jdbcType=VARCHAR},
+      </if>
+      <if test="custno != null" >
+        #{custno,jdbcType=VARCHAR},
+      </if>
+      <if test="agentno != null" >
+        #{agentno,jdbcType=VARCHAR},
+      </if>
+      <if test="applydate != null" >
+        #{applydate,jdbcType=VARCHAR},
+      </if>
+      <if test="applytime != null" >
+        #{applytime,jdbcType=VARCHAR},
+      </if>
+      <if test="busiseriaion != null" >
+        #{busiseriaion,jdbcType=VARCHAR},
+      </if>
+      <if test="orderid != null" >
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="trantype != null" >
+        #{trantype,jdbcType=VARCHAR},
+      </if>
+      <if test="trandate != null" >
+        #{trandate,jdbcType=VARCHAR},
+      </if>
+      <if test="trantime != null" >
+        #{trantime,jdbcType=VARCHAR},
+      </if>
+      <if test="prodcode != null" >
+        #{prodcode,jdbcType=VARCHAR},
+      </if>
+      <if test="tranmoney != null" >
+        #{tranmoney,jdbcType=VARCHAR},
+      </if>
+      <if test="tranamt != null" >
+        #{tranamt,jdbcType=VARCHAR},
+      </if>
+      <if test="start != null" >
+        #{start,jdbcType=VARCHAR},
+      </if>
+      <if test="transeriaion != null" >
+        #{transeriaion,jdbcType=VARCHAR},
+      </if>
+      <if test="accountState != null" >
+        #{accountState,jdbcType=VARCHAR},
+      </if>
+      <if test="accountTime != null" >
+        #{accountTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdAt != null" >
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null" >
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedAt != null" >
+        #{deletedAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

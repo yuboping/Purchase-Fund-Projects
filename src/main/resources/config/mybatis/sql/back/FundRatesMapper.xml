@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qiandai.mapper.FundRatesMapper" >
+  <resultMap id="BaseResultMap" type="com.qiandai.entity.FundRates" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="prod_code" property="prodCode" jdbcType="VARCHAR" />
+    <result column="rate_date" property="rateDate" jdbcType="DATE" />
+    <result column="rate" property="rate" jdbcType="DECIMAL" />
+    <result column="per_w_interest" property="perWInterest" jdbcType="DECIMAL" />
+    <result column="created_at" property="createdAt" jdbcType="TIMESTAMP" />
+    <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP" />
+    <result column="deleted_at" property="deletedAt" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <insert id="insert" parameterType="com.qiandai.entity.FundRates" >
+    insert into fund_rates (id, prod_code, rate_date, 
+      rate, per_w_interest, created_at, 
+      updated_at, deleted_at)
+    values (#{id,jdbcType=BIGINT}, #{prodCode,jdbcType=VARCHAR}, #{rateDate,jdbcType=DATE}, 
+      #{rate,jdbcType=DECIMAL}, #{perWInterest,jdbcType=DECIMAL}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP}, #{deletedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qiandai.entity.FundRates" >
+    insert into fund_rates
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="prodCode != null" >
+        prod_code,
+      </if>
+      <if test="rateDate != null" >
+        rate_date,
+      </if>
+      <if test="rate != null" >
+        rate,
+      </if>
+      <if test="perWInterest != null" >
+        per_w_interest,
+      </if>
+      <if test="createdAt != null" >
+        created_at,
+      </if>
+      <if test="updatedAt != null" >
+        updated_at,
+      </if>
+      <if test="deletedAt != null" >
+        deleted_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="prodCode != null" >
+        #{prodCode,jdbcType=VARCHAR},
+      </if>
+      <if test="rateDate != null" >
+        #{rateDate,jdbcType=DATE},
+      </if>
+      <if test="rate != null" >
+        #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="perWInterest != null" >
+        #{perWInterest,jdbcType=DECIMAL},
+      </if>
+      <if test="createdAt != null" >
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null" >
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedAt != null" >
+        #{deletedAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>
